@@ -1,0 +1,39 @@
+C51 COMPILER V9.52.0.0   7DOAN_GIAIMA                                                      10/31/2022 13:44:59 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE 7DOAN_GIAIMA
+OBJECT MODULE PLACED IN 7doan_giaima.OBJ
+COMPILER INVOKED BY: E:\cooplab\c_8051\C51\BIN\C51.EXE 7doan_giaima.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<at89x51.h>
+   2          int dem=0;
+   3          void delay(unsigned long time)
+   4          {
+   5   1      unsigned long i;
+   6   1      for(i=0;i<time;i++)
+   7   1      {} }
+   8          void main(void)
+   9          {
+  10   1      P2=0x00;
+  11   1      while(dem<10)
+  12   1      {
+  13   2      P2=dem;
+  14   2      dem++;
+  15   2      delay(10000);
+  16   2      } }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    104    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2       8
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,64 @@
+C51 COMPILER V9.52.0.0   7DOAN_QUET_DEM245                                                 10/31/2022 14:29:01 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE 7DOAN_QUET_DEM245
+OBJECT MODULE PLACED IN 7doan_quet_dem245.OBJ
+COMPILER INVOKED BY: E:\cooplab\c_8051\C51\BIN\C51.EXE 7doan_quet_dem245.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <at89x51.h>
+   2          void delay()
+   3            {
+   4   1          int i;
+   5   1          for(i=1;i<200;i++);
+   6   1        }
+   7          unsigned char num[10] = {0xC0,0xF9,0xA4,0xB0,0x99,0x92,0x82,
+   8          0xF8,0x80,0x90};
+   9          void main()
+  10          {
+  11   1        int x,m,n,j,i = 0;
+  12   1        unsigned char p0;
+  13   1        while(1)
+  14   1        {
+  15   2          i=0;n=0;m=0;j=0;
+  16   2          for(m=0;m<10;m++)
+  17   2            for (n=0;n<10;n++)
+  18   2            for (i=0;i<10;i++)
+  19   2            for (j=0;j<10;j++)
+  20   2          for(x=100;x>0;x--)
+  21   2            {
+  22   3              P0 = num[j];
+  23   3              P1 = 0xfe;
+  24   3                delay();
+  25   3              P1 = 0xff;
+  26   3              P1 = 0xfd;
+  27   3              P0 = num[i];
+  28   3                delay();
+  29   3              P1 = 0xff;
+  30   3              P1 = 0xfb;
+  31   3              P0 = num[n];
+  32   3                delay();
+  33   3              P1 = 0xff;
+  34   3              P1 = 0xf7;
+  35   3              P0 = num[m];
+  36   3                delay();
+  37   3              P1 = 0xff;
+  38   3            }
+  39   2        }
+  40   1      }
+*** WARNING C280 IN LINE 12 OF 7doan_quet_dem245.c: 'p0': unreferenced local variable
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    185    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     10       5
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

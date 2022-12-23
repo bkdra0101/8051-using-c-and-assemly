@@ -1,0 +1,165 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        10/31/2022  14:29:01  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+E:\COOPLAB\C_8051\C51\BIN\BL51.EXE STARTUP.obj, 7doan_quet_dem245.obj TO 7doan_quet_dem245
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  7doan_quet_dem245.obj (7DOAN_QUET_DEM245)
+  E:\COOPLAB\C_8051\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  7doan_quet_dem245 (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000AH     UNIT         ?DT?7DOAN_QUET_DEM245
+            DATA    0012H     0005H     UNIT         _DATA_GROUP_
+            IDATA   0017H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     00A5H     UNIT         ?PR?MAIN?7DOAN_QUET_DEM245
+            CODE    08A5H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0931H     0014H     UNIT         ?PR?DELAY?7DOAN_QUET_DEM245
+            CODE    0945H     000DH     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   7doan_quet_dem245 (?C_STARTUP)
+
+
+SEGMENT                               DATA_GROUP 
+  +--> CALLED SEGMENT               START    LENGTH
+---------------------------------------------------
+?C_C51STARTUP                       -----    -----
+  +--> ?PR?MAIN?7DOAN_QUET_DEM245
+  +--> ?C_INITSEG
+
+?PR?MAIN?7DOAN_QUET_DEM245          0012H    0005H
+  +--> ?PR?DELAY?7DOAN_QUET_DEM245
+
+
+
+SYMBOL TABLE OF MODULE:  7doan_quet_dem245 (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:08A5H         SEGMENT       ?C_C51STARTUP
+  I:0017H         SEGMENT       ?STACK
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/31/2022  14:29:01  PAGE 2
+
+
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:08A8H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:08A5H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:08A5H         LINE#         133
+  C:08A7H         LINE#         134
+  C:08A8H         LINE#         135
+  C:08A9H         LINE#         136
+  C:08ABH         LINE#         185
+  C:08AEH         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        7DOAN_QUET_DEM245
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  C:0935H         PUBLIC        delay
+  C:0800H         PUBLIC        main
+  D:0008H         PUBLIC        num
+  C:0931H         SYMBOL        L?0029
+  -------         PROC          L?0028
+  -------         ENDPROC       L?0028
+  C:0931H         SYMBOL        L?0029
+  -------         PROC          DELAY
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:0935H         LINE#         2
+  C:0935H         LINE#         3
+  C:0935H         LINE#         5
+  C:0944H         LINE#         6
+  -------         ENDPROC       DELAY
+  -------         PROC          MAIN
+  -------         DO            
+  D:0012H         SYMBOL        x
+  D:0002H         SYMBOL        m
+  D:0014H         SYMBOL        n
+  D:0082H         SYMBOL        j
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/31/2022  14:29:01  PAGE 3
+
+
+  D:0004H         SYMBOL        i
+  D:0016H         SYMBOL        p0
+  -------         ENDDO         
+  C:0800H         LINE#         9
+  C:0800H         LINE#         10
+  C:0800H         LINE#         11
+  C:0800H         LINE#         13
+  C:0800H         LINE#         14
+  C:0800H         LINE#         15
+  C:080BH         LINE#         16
+  C:080BH         LINE#         17
+  C:0810H         LINE#         18
+  C:0813H         LINE#         19
+  C:0818H         LINE#         20
+  C:081EH         LINE#         21
+  C:081EH         LINE#         22
+  C:0827H         LINE#         23
+  C:082AH         LINE#         24
+  C:082DH         LINE#         25
+  C:0830H         LINE#         26
+  C:0833H         LINE#         27
+  C:0836H         LINE#         28
+  C:0839H         LINE#         29
+  C:083CH         LINE#         30
+  C:083FH         LINE#         31
+  C:0843H         LINE#         32
+  C:0846H         LINE#         33
+  C:0849H         LINE#         34
+  C:084CH         LINE#         35
+  C:084FH         LINE#         36
+  C:0852H         LINE#         37
+  C:0855H         LINE#         38
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        7DOAN_QUET_DEM245
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00D4H BYTE (10%) *
+******************************************************************************
+
+Program Size: data=24.0 xdata=0 code=341
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

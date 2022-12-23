@@ -1,0 +1,82 @@
+C51 COMPILER V9.52.0.0   EX_INT2                                                           11/07/2022 13:30:46 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE EX_INT2
+OBJECT MODULE PLACED IN ex_int2.OBJ
+COMPILER INVOKED BY: E:\cooplab\c_8051\C51\BIN\C51.EXE ex_int2.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <at89x51.h>
+   2          int count=0;
+   3          void delay(int interval)
+   4          {
+   5   1        int i,j;
+   6   1        for(i=0;i<100;i++)
+   7   1        {
+   8   2          for(j=0;j<interval;j++);
+   9   2        }
+  10   1      }
+  11          
+  12          void output_7seg(unsigned char value)
+  13          {
+  14   1        unsigned char const
+  15   1        mask[10]={0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90};
+  16   1        if(value < 10)
+  17   1        {
+  18   2          P0=mask[value];
+  19   2        }
+  20   1      }
+  21          
+  22          void EXT0_Process() interrupt 0
+  23          {
+  24   1      EA=0;
+  25   1      count++;    
+  26   1      EA=1;
+  27   1      }
+  28          
+  29          void display_number(int iNum)
+  30          {
+  31   1        int i;
+  32   1        unsigned char pos=0x08;
+  33   1        unsigned char temp;
+  34   1        for(i=0;i<4;i++)
+  35   1        {
+  36   2        temp=iNum%10;
+  37   2        iNum=iNum/10;
+  38   2        P2=pos;
+  39   2        output_7seg(temp);
+  40   2        delay(5);
+  41   2        pos=pos>>1;
+  42   2        }
+  43   1      }
+  44          
+  45          void init()
+  46          {
+  47   1        P3_2=1; //Thiet lap chan P3_2 lam chan vao
+  48   1        IE=0x81; //Cho phep ngat ngoai
+  49   1        IT0=1; //Ngat theo suon
+  50   1      }
+  51          
+  52          void main()
+  53          {
+  54   1        init();
+  55   1        while(1)
+C51 COMPILER V9.52.0.0   EX_INT2                                                           11/07/2022 13:30:46 PAGE 2   
+
+  56   1        {display_number(count);}
+  57   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    193    ----
+   CONSTANT SIZE    =     10    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2      17
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

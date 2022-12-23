@@ -1,0 +1,107 @@
+C51 COMPILER V9.52.0.0   7DOAN_QUETLED1                                                    10/31/2022 14:05:35 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE 7DOAN_QUETLED1
+OBJECT MODULE PLACED IN 7doan_quetLED1.OBJ
+COMPILER INVOKED BY: E:\cooplab\c_8051\C51\BIN\C51.EXE 7doan_quetLED1.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <at89x51.h>
+   2          #include <stdio.h>
+   3          #define DELAYTIME 65000
+   4          unsigned int temp1;
+   5          void delay(unsigned int temp)
+   6            {
+   7   1          while(--temp);
+   8   1        }
+   9          void main()
+  10            {
+  11   1          P1=0;     //LED is off
+  12   1          while(1)
+  13   1          {
+  14   2            P1=1;
+  15   2            P2=0XC0;
+  16   2            temp1 = DELAYTIME;
+  17   2            delay(temp1);
+  18   2            P1 = 2;
+  19   2            P2 = 0XF9;
+  20   2            temp1 = DELAYTIME;
+  21   2            delay (temp1);
+  22   2            P1 = 4;
+  23   2            P2 = 0XA4;
+  24   2            temp1 = DELAYTIME;
+  25   2            delay(temp1);
+  26   2            P1 = 8;
+  27   2            P2 = 0XB0;
+  28   2            temp1 = DELAYTIME;
+  29   2            delay (temp1);
+  30   2            P1 = 1;
+  31   2            P2 = 0X99;
+  32   2            temp1 = DELAYTIME;
+  33   2            delay (temp1);
+  34   2            P1 = 2;
+  35   2            P2 = 0X92;
+  36   2            temp1 = DELAYTIME;
+  37   2            delay (temp1);
+  38   2            P1 = 4;
+  39   2            P2 = 0X82;
+  40   2            temp1 = DELAYTIME;
+  41   2            delay (temp1);
+  42   2            P1 = 8;
+  43   2            P2 = 0Xf8;
+  44   2            temp1 = DELAYTIME;
+  45   2            delay (temp1);
+  46   2            P1 = 1;
+  47   2            P2 = 0X80;
+  48   2            temp1 = DELAYTIME;
+  49   2            delay (temp1);
+  50   2            P1 = 2;
+  51   2            P2 = 0X90;
+  52   2            temp1 = DELAYTIME;
+  53   2            delay (temp1);
+  54   2            P1 = 4;
+  55   2            P2 = 0X08;
+C51 COMPILER V9.52.0.0   7DOAN_QUETLED1                                                    10/31/2022 14:05:35 PAGE 2   
+
+  56   2            temp1 = DELAYTIME;
+  57   2            delay (temp1);
+  58   2            P1=8;
+  59   2            P2=0X03;
+  60   2            temp1 = DELAYTIME;
+  61   2            delay (temp1);      
+  62   2      P1 = 1;
+  63   2            P2 = 0X46;
+  64   2            temp1 = DELAYTIME;
+  65   2            delay (temp1);
+  66   2            P1 = 2;
+  67   2            P2 = 0X21;
+  68   2            temp1 = DELAYTIME;
+  69   2            delay (temp1);
+  70   2            P1 = 4;
+  71   2            P2 = 0X06;
+  72   2            temp1 = DELAYTIME;
+  73   2            delay (temp1);
+  74   2            P1 = 8;
+  75   2            P2 = 0X0E;
+  76   2            temp1 = DELAYTIME;
+  77   2            delay (temp1);
+  78   2            temp1 = DELAYTIME;
+  79   2            delay (temp1);
+  80   2          }
+  81   1        }
+  82            
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    173    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

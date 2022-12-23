@@ -1,0 +1,69 @@
+C51 COMPILER V9.52.0.0   7DOAN_TRUCTIEP                                                    10/31/2022 13:34:45 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE 7DOAN_TRUCTIEP
+OBJECT MODULE PLACED IN 7doan_tructiep.OBJ
+COMPILER INVOKED BY: E:\cooplab\c_8051\C51\BIN\C51.EXE 7doan_tructiep.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<at89x51.h>
+   2          
+   3          void delay_ms(unsigned int x);
+   4          void giaima(void);
+   5          void hienthi(void);
+   6          unsigned char donvi,chuc;
+   7          unsigned int i,j,a;
+   8          int
+   9          dig[]={0xC0,0xF9,0xA4,0xB0,0x99,0x92,0x82,0xF8,0x80,0x90
+  10          };
+  11          void main (void)
+  12          {
+  13   1      while(1)
+  14   1      {
+  15   2      for(i=0;i<100;i++)
+  16   2      {
+  17   3      a=i;
+  18   3      for(j=0;j<5000;j++)
+  19   3      {
+  20   4      giaima();
+  21   4      hienthi();
+  22   4      } }
+  23   2      }}
+  24          //chuong trinhdelay
+  25          void delay_ms(unsigned int x)
+  26          {
+  27   1      unsigned char k;
+  28   1      while(x-->0)
+  29   1      {
+  30   2      for(j=0;k<125;k++
+  31   2      ){;}
+  32   2      } }
+  33          //chuong trinh giaima
+  34          void giaima(void)
+  35          {
+  36   1      chuc=a/10;
+  37   1      donvi=a%10;
+  38   1      }
+  39          //chuongtrinhhienthi
+  40          void hienthi(void)
+  41          {
+  42   1      P0=dig[donvi];
+  43   1      P2=dig[chuc];
+  44   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    140    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     28       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+C51 COMPILER V9.52.0.0   7DOAN_TRUCTIEP                                                    10/31/2022 13:34:45 PAGE 2   
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

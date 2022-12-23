@@ -1,0 +1,24 @@
+MOV 40H, #0C0h
+MOV 41H, #0f9h
+MOV 42H, #0a4h
+MOV 43H, #0b0h
+MOV 44H, #99h
+MOV 45H, #92h
+MOV 46H, #82h
+MOV 47H, #0f8h
+MOV 48H, #80h
+MOV 49H, #90h
+MOV A, P2
+MOV 30H, A 
+ANL 30H, #0FH 	;NUMBER A
+ANL A, #0F0H
+SWAP A   			;NUMBER B
+ADD A, 30H
+
+;setb p0.7
+;setb p3.3
+;setb p3.4
+add a,#40h
+MOV R0, A
+MOV A, @R0
+mov p1,a

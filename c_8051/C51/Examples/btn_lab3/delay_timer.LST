@@ -1,0 +1,56 @@
+C51 COMPILER V9.52.0.0   DELAY_TIMER                                                       11/12/2022 23:17:15 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE DELAY_TIMER
+OBJECT MODULE PLACED IN delay_timer.OBJ
+COMPILER INVOKED BY: E:\cooplab\c_8051\C51\BIN\C51.EXE delay_timer.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <at89x51.h>
+   2          //tao do tre chinh xac su dung Timer
+   3          void delay_hardware_50ms()
+   4          {
+   5   1        TMOD=TMOD & 0xF0;   //Xoa thiet lap Timer0
+   6   1        TMOD=TMOD | 0x01;
+   7   1        ET0=0;            //Khong phat sinh ngat
+   8   1        TH0=0x3C;         //Thiet lap gia tri khoi dau la 3CB0    
+   9   1        TL0=0xB0;         //Tuong duong 15536 he 10
+  10   1        TF0=0;            //Xoa co tran timer 0
+  11   1        TR0=1;            //Khoi dong timer 0 
+  12   1        while(TF0==0);      //Cho den khi tran
+  13   1        TR0=0;            //Dung timer  0
+  14   1      }   
+  15          //Chuong trinh tao tre chinh xac 1s
+  16          void delay_hardware_1s()
+  17          {
+  18   1        int i;
+  19   1        for(i=0;i<20;i++)
+  20   1          {
+  21   2          delay_hardware_50ms();
+  22   2          }
+  23   1      } 
+  24          void main()
+  25          { 
+  26   1        while(1)
+  27   1        { 
+  28   2          P1=0xAA;
+  29   2          delay_hardware_1s();
+  30   2          P1=0x55;
+  31   2          delay_hardware_1s();
+  32   2        }
+  33   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     56    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

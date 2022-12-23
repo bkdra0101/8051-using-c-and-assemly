@@ -1,0 +1,45 @@
+C51 COMPILER V9.52.0.0   LED_PROB1                                                         10/24/2022 14:13:07 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LED_PROB1
+OBJECT MODULE PLACED IN led_prob1.OBJ
+COMPILER INVOKED BY: E:\cooplab\c_8051\C51\BIN\C51.EXE led_prob1.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include < at89x51.h>
+   2          
+   3          void  delay(int interval){
+   4   1      int i,j;
+   5   1      for(i=0;i<255;i++){
+   6   2      for(j=0;j<interval;j++);
+   7   2      } }
+   8          void  main(){
+   9   1      //  P0=0xfe;
+  10   1      //while(1){
+  11   1      
+  12   1      //delay(100);
+  13   1      //P0=P0<<1;
+  14   1      //delay(100);
+  15   1      //} 
+  16   1      //}
+  17   1      while(1){
+  18   2      P0=0x55;
+  19   2      delay(100);
+  20   2      P0=0xAA;
+  21   2      delay(100);
+  22   2      } }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     55    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

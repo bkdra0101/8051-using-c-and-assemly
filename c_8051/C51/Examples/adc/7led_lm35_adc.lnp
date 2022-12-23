@@ -1,0 +1,3 @@
+"STARTUP.obj",
+"7led_lm35_adc.obj" 
+TO "7led_lm35_adc" 

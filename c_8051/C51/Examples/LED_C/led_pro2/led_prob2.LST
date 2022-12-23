@@ -1,0 +1,94 @@
+C51 COMPILER V9.52.0.0   LED_PROB2                                                         11/19/2022 23:57:51 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LED_PROB2
+OBJECT MODULE PLACED IN led_prob2.OBJ
+COMPILER INVOKED BY: E:\cooplab\c_8051\C51\BIN\C51.EXE led_prob2.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <at89x51.h>
+   2          #include <stdio.h>
+   3          #define LED0 P0_0
+   4          #define LED1 P0_1
+   5          #define LED2 P0_2
+   6          #define LED3 P0_3
+   7          #define LED4 P0_4
+   8          #define LED5 P0_5
+   9          #define LED6 P0_6
+  10          #define LED7 P0_7
+  11          #define sang 1
+  12          #define tat 0
+  13          void delay(unsigned int ms)
+  14            {
+  15   1          unsigned int i,j;
+  16   1          for(i=0;i<ms;i++)
+  17   1          for(j=0;j<120;j++)
+  18   1          {}
+  19   1        }
+  20          void display_LED(unsigned char number)
+  21            {
+  22   1          switch(number)
+  23   1          {
+  24   2          case 1:
+  25   2          LED0 = sang;
+  26   2          LED1 = LED2 = LED3 = LED4 = LED5 = LED6 = LED7 = tat;
+  27   2          break;
+  28   2          case 2:
+  29   2          LED1 = sang;
+  30   2          LED0 = LED2 = LED3 = LED4 = LED5 = LED6 = LED7 = tat;
+  31   2          break;
+  32   2          case 3:
+  33   2          LED2 = sang;
+  34   2          LED1 = LED0 = LED3 = LED4 = LED5 = LED6 = LED7 = tat;
+  35   2          break;
+  36   2          case 4:
+  37   2          LED3 = sang;
+  38   2          LED1 = LED2 = LED0 = LED4 = LED5 = LED6 = LED7 = tat;
+  39   2          break;
+  40   2          case 5:
+  41   2          LED4 = sang;
+  42   2          LED1 = LED2 = LED3 = LED0 = LED5 = LED6 = LED7 = tat;
+  43   2          break;
+  44   2          case 6:
+  45   2          LED5 = sang;
+  46   2          LED1 = LED2 = LED3 = LED4 = LED0 = LED6 = LED7 = tat;
+  47   2          break;
+  48   2          case 7:
+  49   2          LED6 = sang;
+  50   2          LED1 = LED2 = LED3 = LED4 = LED5 = LED0 = LED7 = tat;
+  51   2          break;
+  52   2          case 8:
+  53   2          LED7 = sang;
+  54   2          LED1 = LED2 = LED3 = LED4 = LED5 = LED6 = LED0 = tat;
+  55   2          break;
+C51 COMPILER V9.52.0.0   LED_PROB2                                                         11/19/2022 23:57:51 PAGE 2   
+
+  56   2          }
+  57   1        }
+  58          void main()
+  59            {
+  60   1        unsigned char m;
+  61   1        while(1)
+  62   1          {
+  63   2            for(m=0;m<9;m++)
+  64   2            {
+  65   3            display_LED(m);
+  66   3            delay(500);
+  67   3            }
+  68   2          }
+  69   1        }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    213    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

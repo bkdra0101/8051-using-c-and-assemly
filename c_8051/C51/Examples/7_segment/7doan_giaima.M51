@@ -1,0 +1,141 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        10/31/2022  13:44:59  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+E:\COOPLAB\C_8051\C51\BIN\BL51.EXE STARTUP.obj, 7doan_giaima.obj TO 7doan_giaima
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  7doan_giaima.obj (7DOAN_GIAIMA)
+  E:\COOPLAB\C_8051\C51\LIB\C51S.LIB (?C_INIT)
+  E:\COOPLAB\C_8051\C51\LIB\C51S.LIB (?C?ULCMP)
+
+
+LINK MAP OF MODULE:  7doan_giaima (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0008H     UNIT         _DATA_GROUP_
+            DATA    0010H     0002H     UNIT         ?DT?7DOAN_GIAIMA
+            IDATA   0012H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     003FH     UNIT         ?PR?_DELAY?7DOAN_GIAIMA
+            CODE    08CBH     0029H     UNIT         ?PR?MAIN?7DOAN_GIAIMA
+            CODE    08F4H     0011H     UNIT         ?C?LIB_CODE
+            CODE    0905H     0005H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   7doan_giaima (?C_STARTUP)
+
+
+SEGMENT                           DATA_GROUP 
+  +--> CALLED SEGMENT           START    LENGTH
+-----------------------------------------------
+?C_C51STARTUP                   -----    -----
+  +--> ?PR?MAIN?7DOAN_GIAIMA
+  +--> ?C_INITSEG
+
+?PR?MAIN?7DOAN_GIAIMA           -----    -----
+  +--> ?PR?_DELAY?7DOAN_GIAIMA
+
+?PR?_DELAY?7DOAN_GIAIMA         0008H    0008H
+
+
+
+SYMBOL TABLE OF MODULE:  7doan_giaima (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/31/2022  13:44:59  PAGE 2
+
+
+
+  -------         MODULE        ?C_STARTUP
+  C:0800H         SEGMENT       ?C_C51STARTUP
+  I:0012H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0803H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0800H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0800H         LINE#         133
+  C:0802H         LINE#         134
+  C:0803H         LINE#         135
+  C:0804H         LINE#         136
+  C:0806H         LINE#         185
+  C:0809H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        7DOAN_GIAIMA
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:088CH         PUBLIC        _delay
+  C:08CBH         PUBLIC        main
+  D:0010H         PUBLIC        dem
+  -------         PROC          _DELAY
+  D:0008H         SYMBOL        time
+  -------         DO            
+  D:000CH         SYMBOL        i
+  -------         ENDDO         
+  C:088CH         LINE#         3
+  C:0894H         LINE#         4
+  C:0894H         LINE#         6
+  C:08B3H         LINE#         7
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  C:08CBH         LINE#         8
+  C:08CBH         LINE#         9
+  C:08CBH         LINE#         10
+  C:08CEH         LINE#         11
+  C:08DBH         LINE#         12
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/31/2022  13:44:59  PAGE 3
+
+
+  C:08DBH         LINE#         13
+  C:08DEH         LINE#         14
+  C:08E6H         LINE#         15
+  C:08F1H         LINE#         16
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        7DOAN_GIAIMA
+
+  -------         MODULE        ?C?ULCMP
+  C:08F4H         PUBLIC        ?C?ULCMP
+  -------         ENDMOD        ?C?ULCMP
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 007BH BYTE ( 6%) *
+******************************************************************************
+
+Program Size: data=19.0 xdata=0 code=269
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

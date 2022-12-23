@@ -1,0 +1,42 @@
+C51 COMPILER V9.52.0.0   EX_INT1_PROB4_BTN                                                 11/07/2022 13:26:57 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE EX_INT1_PROB4_BTN
+OBJECT MODULE PLACED IN ex_int1_prob4_btn.OBJ
+COMPILER INVOKED BY: E:\cooplab\c_8051\C51\BIN\C51.EXE ex_int1_prob4_btn.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <AT89X51.H>  
+   2          void SetupEx0(void);  
+   3          void main(void)  
+   4          { 
+   5   1        SetupEx0();     
+   6   1        while(1);
+   7   1        }
+   8            void SetupEx0(void)  
+   9          {   EA=0;   
+  10   1          IT0 = 1;  
+  11   1          EX0=1; 
+  12   1          EA = 1;  
+  13   1      }  
+  14          void Ex0Isr(void) 
+  15          interrupt 0 
+  16          {   
+  17   1        P1_0 = !P1_0;      
+  18   1        P1_1 = !P1_1;
+  19   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     19    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

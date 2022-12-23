@@ -1,0 +1,108 @@
+C51 COMPILER V9.52.0.0   7LED_LM35_ADC                                                     11/19/2022 23:36:34 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE 7LED_LM35_ADC
+OBJECT MODULE PLACED IN 7led_lm35_adc.OBJ
+COMPILER INVOKED BY: E:\cooplab\c_8051\C51\BIN\C51.EXE 7led_lm35_adc.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <regx51.h>
+   2          #define uchar unsigned  char
+   3          #define uint  unsigned  int
+   4          #define port0 P0
+   5          #define ale P1_0
+   6          #define c P1_1  
+   7          #define b P1_2
+   8          #define a P1_3
+   9          #define oe  P1_4
+  10          #define eoc P1_5
+  11          #define start P1_6
+  12          int dig[]={0xC0,0xF9,0xA4,0xB0,0x99,0x92,0x82,0xF8,0x80,0x90};
+  13          uchar tram,chuc,donvi;
+  14          uint  x;
+  15          void  delay(int x)
+  16            {
+  17   1        int i;
+  18   1        for(i=0;i<x;i++);
+  19   1        }
+  20          void  tachso(void)
+  21            {
+  22   1        tram=x/100;
+  23   1        chuc=(x/10)%10;
+  24   1        donvi=x%10;
+  25   1        }
+  26          void  giaima(int  x)
+  27            { 
+  28   1        if  (x==1)
+  29   1        {c=0;b=0;a=0;}
+  30   1        if  (x==2)
+  31   1        {c=0;b=0;a=1;}
+  32   1        if  (x==3)
+  33   1        {c=0;b=1;a=0;}
+  34   1        if (x==4)
+  35   1        {c=0;b=1;a=1;}
+  36   1        if  (x==5)
+  37   1        {c=1;b=0;a=0;}
+  38   1        if  (x==6)
+  39   1        {c=1;b=0;a=1;}
+  40   1        if  (x==7)
+  41   1        {c=1;b=1;a=0;}
+  42   1        if  (x==8)
+  43   1        {c=1;b=1;a=1;}
+  44   1        }
+  45          void main()
+  46            {
+  47   1        int i;
+  48   1        oe  = 1;
+  49   1        for(i=0;i<8;i++)
+  50   1        { 
+  51   2          int tam;
+  52   2          for(tam=0;tam<30;tam++)
+  53   2          {
+  54   3            P2=0x01;
+  55   3            P0=dig[i+1];
+C51 COMPILER V9.52.0.0   7LED_LM35_ADC                                                     11/19/2022 23:36:34 PAGE 2   
+
+  56   3            P2_4=0;
+  57   3            delay(1000);
+  58   3            start=0;ale=0;eoc=1;
+  59   3            giaima(i+1);
+  60   3            delay(100);
+  61   3            start=1;ale=1;
+  62   3            delay(500);
+  63   3            start=0;ale=0;
+  64   3            while(eoc==0);
+  65   3            delay(100);
+  66   3            eoc=1;
+  67   3            x=P3;
+  68   3            tachso();
+  69   3            P2=0x02;
+  70   3            P0=dig[tram];
+  71   3            P2_4=1;
+  72   3            delay(500);
+  73   3            P2=0x04;
+  74   3            P0=dig[chuc];
+  75   3            P2_4=1;
+  76   3            delay(500);
+  77   3            P2=0x08;
+  78   3            P0=dig[donvi];
+  79   3            P2_4=1;
+  80   3            delay(500);
+  81   3          }
+  82   2        }
+  83   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    345    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     25       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

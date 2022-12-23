@@ -1,0 +1,66 @@
+C51 COMPILER V9.52.0.0   SERIAL_MCU_PC_TEMP                                                11/26/2022 20:10:05 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE SERIAL_MCU_PC_TEMP
+OBJECT MODULE PLACED IN serial_MCU_PC_temp.OBJ
+COMPILER INVOKED BY: E:\cooplab\c_8051\C51\BIN\C51.EXE serial_MCU_PC_temp.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <at89x52.h>
+   2          unsigned char chuc, dvi, rdata, nhietdo;
+   3          void setup()
+   4            {
+   5   1          TMOD = 0x20;//;enabletimer1,mode2(autoreload)
+   6   1          TH1 = -3;   //9600Baudrate
+   7   1          SCON = 0x50;//;8bituart,1stop bit,RENenabled,timer1
+   8   1          TR1 = 1;
+   9   1          IE = 0x90;
+  10   1        }
+  11          void serint(void)interrupt 4 using 1
+  12            {
+  13   1          if(RI)
+  14   1          {
+  15   2          rdata = SBUF;
+  16   2          RI = 0;
+  17   2          switch(rdata)
+  18   2            {
+  19   3              case('0'):{P0_7 = 0; break;}
+  20   3              case('1'):{P0_7 = 1; break;}
+  21   3              case('a'):{TH1 = -24; break;}
+  22   3              case('b'):{TH1 = -12; break;}
+  23   3              case('c'):{TH1 = -6; break;}
+  24   3              case('d'):{TH1 = -3; break;}
+  25   3            }
+  26   2          }
+  27   1        }
+  28          void main()
+  29            {
+  30   1          unsigned char trans_data;
+  31   1          setup();
+  32   1          while(1)
+  33   1          {
+  34   2            nhietdo = P1;
+  35   2            chuc = (nhietdo/10)<<4;
+  36   2            dvi = nhietdo%10;
+  37   2            P2 = chuc|dvi;
+  38   2            trans_data = P2;
+  39   2            SBUF = trans_data;
+  40   2            while(TI == 0);
+  41   2            TI = 0;
+  42   2          }
+  43   1        }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    124    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
